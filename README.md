@@ -1,60 +1,91 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
+# Dolphin Channel
 
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/d/total.svg" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/v/stable.svg" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/license.svg" alt="License"></a>
-</p>
+A movie and celebrity database application built with Laravel. This application allows users to browse movies, explore celebrity profiles, and manage movie content through an admin dashboard.
 
-## About Laravel
+## Features
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+### Frontend (Public)
+- **Home Page**: Featured and latest movies.
+- **Movie Details**: Detailed information about movies including cast and crew.
+- **Celebrity Profiles**: Information about actors and directors.
+- **Search**: Search functionality to find movies.
+- **Categorization**: Browse movies by genre or type.
+- **Coming Soon**: Preview upcoming releases.
+- **User Authentication**: Login and registration functionality.
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+### Backend (Admin)
+- **Dashboard**: Overview of the system.
+- **Content Management**:
+  - **Movies**: Create, read, update, and delete movie entries.
+  - **Actors**: Manage actor profiles.
+  - **Directors**: Manage director profiles.
+  - **Genres**: Manage movie genres.
+- **Role-Based Access**: Admin routes are protected and require the 'Admin' role.
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+## Technologies Used
 
-## Learning Laravel
+- **Framework**: Laravel 7.x
+- **Language**: PHP >= 7.2.5
+- **Database**: MySQL
+- **Frontend**: Bootstrap 4, jQuery, Laravel Mix
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+## Prerequisites
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 1500 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+- PHP >= 7.2.5
+- Composer
+- Node.js & NPM
+- MySQL
 
-## Laravel Sponsors
+## Installation
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+1. **Clone the repository**
+   ```bash
+   git clone <repository-url>
+   cd dolphin_channel
+   ```
 
-### Premium Partners
+2. **Install PHP dependencies**
+   ```bash
+   composer install
+   ```
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[OP.GG](https://op.gg)**
+3. **Install Frontend dependencies**
+   ```bash
+   npm install
+   npm run dev
+   ```
 
-## Contributing
+4. **Environment Setup**
+   Copy the example environment file and configure your database settings.
+   ```bash
+   cp .env.example .env
+   ```
+   Open `.env` and update `DB_DATABASE`, `DB_USERNAME`, and `DB_PASSWORD` with your database credentials.
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+5. **Generate Application Key**
+   ```bash
+   php artisan key:generate
+   ```
 
-## Code of Conduct
+6. **Run Migrations and Seed Database**
+   ```bash
+   php artisan migrate --seed
+   ```
+   *Note: This includes `RoleTableSeeder` and `DatabaseSeeder` which are essential for setting up initial roles and data.*
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+7. **Run the Application**
+   ```bash
+   php artisan serve
+   ```
+   Access the application at `http://localhost:8000`.
 
-## Security Vulnerabilities
+## Directory Structure
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+- `app/Http/Controllers`: Contains the application logic (BackendController, MovieController, PageController, etc.).
+- `routes/web.php`: Defines the web routes for frontend and backend.
+- `resources/views`: Contains the Blade templates for the UI.
+- `database/migrations`: Database structure definitions.
+- `public`: Publicly accessible assets (images, css, js).
 
 ## License
 
